@@ -1,0 +1,245 @@
+import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import './board.css';
+
+const Board = () => {
+  const [buffer, setBuffer] = useState('');
+
+  function handleNumber(numero) {
+    setBuffer(buffer + numero);
+  }
+
+  function handleCalculate() {
+    setBuffer(eval(buffer));
+  }
+
+  function handleClear() {
+    setBuffer('');
+  }
+
+  function handleErase() {
+    setBuffer(buffer.slice(0, buffer.length - 1));
+  }
+
+  return (
+    <div>
+      <Container>
+        <Row>
+          <Col>
+            <Card>
+              <Card.Header className="resultado">
+                <h2>{buffer}</h2>
+              </Card.Header>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-danger"
+              onClick={() => handleClear()}
+            >
+              CE
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-warning"
+              onClick={() => handleErase()}
+            >
+              Del
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-info"
+              onClick={() => handleNumber('+')}
+            >
+              +
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('7')}
+            >
+              7
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('8')}
+            >
+              8
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('9')}
+            >
+              9
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-info"
+              onClick={() => handleNumber('-')}
+            >
+              -
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('4')}
+            >
+              4
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('5')}
+            >
+              5
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('6')}
+            >
+              6
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-info"
+              onClick={() => handleNumber('*')}
+            >
+              *
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('1')}
+            >
+              1
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('2')}
+            >
+              2
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('3')}
+            >
+              3
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-info"
+              onClick={() => handleNumber('/')}
+            >
+              ÷
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-info"
+              onClick={() => handleNumber('-')}
+            >
+              -/+
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-secondary"
+              onClick={() => handleNumber('0')}
+            >
+              0
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-info"
+              onClick={() => handleNumber('.')}
+            >
+              .
+            </Button>
+          </Col>
+          <Col>
+            <Button
+              size="sm"
+              className="btn-cal"
+              variant="outline-success"
+              onClick={handleCalculate}
+            >
+              =
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
+
+export default Board;
